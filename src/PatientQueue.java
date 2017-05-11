@@ -102,6 +102,7 @@ class PatientIterator implements Iterator<Patient> {
 
 	public PatientIterator(PatientQueue que) {
 		this.que = que.copy();
+		this.que.sort();
 	}
 
 	public boolean hasNext() {
