@@ -1,6 +1,5 @@
 import java.awt.Color;
 
-
 public class Patient {
 	public int eKey;
 	public String name;
@@ -15,10 +14,12 @@ public class Patient {
 		this.diagnos = diagnos;
 
 	}
-	public Patient(int eKey,  String name) {
+
+	public Patient(int eKey, String name) {
 
 		this.name = name;
 		this.eKey = eKey;
+		this.diagnos = "Ovetande";
 
 	}
 
@@ -34,25 +35,26 @@ public class Patient {
 		return diagnos;
 	}
 
-	public Color emergency(int prio) {
-		if (prio == 0) {
+	public Color getColor() {
+		if (eKey == 0) {
 			emergencyCol = new Color(0, 255, 0);
 			return emergencyCol;
 		}
 
-		else if (prio == 1) {
+		else if (eKey == 1) {
 			emergencyCol = new Color(64, 224, 208);
 			return emergencyCol;
 		}
 
-		else if (prio == 2) {
+		else if (eKey == 2) {
 			emergencyCol = new Color(0, 0, 255);
 			return emergencyCol;
 		}
 
-		else
+		else {
 			emergencyCol = new Color(255, 0, 0);
-		return emergencyCol;
+			return emergencyCol;
+		}
 
 	}
 

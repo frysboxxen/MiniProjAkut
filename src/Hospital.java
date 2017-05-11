@@ -1,4 +1,3 @@
-import java.awt.Color;
 
 public class Hospital {
 	public static void main(String[] args) {
@@ -8,13 +7,11 @@ public class Hospital {
 		StdDraw.setCanvasSize(xLed, yLed);
 		StdDraw.setXscale(0,xLed);
 		StdDraw.setYscale(0,yLed);
-		Patient p1 = new Patient(0, "kalle");
-		Patient p2 = new Patient(3, "karl");
 
 		
 		PatientQueue que = new PatientQueue(12);
-		que.addPatient(p1);
-		que.addPatient(p2);
+		que.addPatient(new Patient(0, "kalle"));
+		que.addPatient(new Patient(3, "karl"));
 		que.addPatient(new Patient(2,"felix"));
 		que.addPatient(new Patient(2,"marcus"));
 		que.addPatient(new Patient(3,"oscar"));
@@ -37,28 +34,27 @@ public class Hospital {
 //		System.out.println(que.pop().toString());
 //		System.out.println();
 //		que.print();
-		PatientIterator[] u = new PatientIterator[4];
+		PatientIterator u = que.iterator();
 		
-		StdDraw.show();
-		for(int i = 0; i < 4; i++){
-			u[i] = que.iterator();
-		}
+		
 		
 		int j = 1;
-		for(int i = 3; i >= 0; i--){
-			while(u[i].hasNext()){
-				Patient tmp = u[i].next();
-				if(tmp.eKey == i){
-					System.out.println(tmp.toString());
-					StdDraw.setPenColor(new Color (i*50,i*50,i*50));
-					StdDraw.setPenRadius(0.01);
-					StdDraw.ellipse((j*xLed)/(que.size()*2), 100, 60, 40);
-					j = j +2;
-				}
-			}
+		
+		while(u.hasNext()){
+			Patient tmp = u.next();
+			
+			System.out.println(tmp.toString());
+			StdDraw.setPenColor(tmp.getColor());
+			StdDraw.setPenRadius(0.01);
+			StdDraw.ellipse((j*xLed)/(que.size()*2), 100, 60, 40);
+			j = j +2;
+			
 		}
+	
 		StdDraw.show();
+		StdDraw.pause(5000);
 //		StdDraw.clear();
 		
 	}
+	
 }
