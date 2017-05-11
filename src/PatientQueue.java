@@ -1,3 +1,4 @@
+import java.util.Iterator;
 
 public class PatientQueue {
 
@@ -15,6 +16,13 @@ public class PatientQueue {
 		heap[numPatients] = p;
 		// heapTheArray(0);
 		numPatients++;
+	}
+	public PatientQueue copy(){
+		PatientQueue temp = new PatientQueue(numPatients);
+			for(int i = 0; i<numPatients;i++){
+				temp.addPatient(heap[i]);
+			}
+		return temp;	
 	}
 
 	public void heapSort() {
@@ -89,27 +97,22 @@ public class PatientQueue {
 
 }
 
-class PatientIterator implements iterator {
-	int current;
+class PatientIterator implements Iterator<Patient> {
 	PatientQueue que;
-	Patient[] theArray;
 
 	public PatientIterator(PatientQueue que) {
-		this.que = que;
-		current = 0;
-		theArray = this.que.toArray();
+		this.que = que.copy();
 	}
 
 	public boolean hasNext() {
-		return current < que.size();
+		
+		return que.size() != 0;
 	}
 
 	public Patient next() {
-		if (hasNext()){
-			current++;
-			return theArray[current -1];
-		}
-		return null;
+		
+			return que.pop();
+		
 	}
 	
 	public void remove(){
