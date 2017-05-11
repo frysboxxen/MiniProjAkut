@@ -24,11 +24,15 @@ public class Patient {
 	}
 
 	public String toString() {
-		return name + " " + diagnos + " " + eKey;
+		String temp = name +(char) 10 + " " + diagnos + " " +(char) 10+ eKey; 
+		return temp;
 	}
 
 	public int geteKey() {
 		return eKey;
+	}
+	public String getName(){
+		return this.name;
 	}
 
 	public String getDiagnos() {

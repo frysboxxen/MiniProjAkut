@@ -1,6 +1,8 @@
+import java.awt.Color;
+import java.awt.Font;
 
 public class Hospital {
-	public static void main(String[] args) {
+	public static void main(String[] args){
 //		StdDraw.enableDoubleBuffering();
 		int xLed = 1600;
 		int yLed = 800;
@@ -10,17 +12,17 @@ public class Hospital {
 
 		
 		PatientQueue que = new PatientQueue(12);
-		que.addPatient(new Patient(0, "kalle"));
-		que.addPatient(new Patient(3, "karl"));
-		que.addPatient(new Patient(2,"felix"));
-		que.addPatient(new Patient(2,"marcus"));
-		que.addPatient(new Patient(3,"oscar"));
-		que.addPatient(new Patient(2,"elias"));
-		que.addPatient(new Patient(2,"inez"));
-		que.addPatient(new Patient(1,"magdalena"));
-		que.addPatient(new Patient(1,"daniel"));
-		que.addPatient(new Patient(0,"simon"));
-		que.addPatient(new Patient(3,"elisabeth"));
+		que.addPatient(new Patient(0, "Kalle"));
+		que.addPatient(new Patient(3, "Karl"));
+		que.addPatient(new Patient(2,"Felix"));
+		que.addPatient(new Patient(2,"Marcus"));
+		que.addPatient(new Patient(3,"Oscar"));
+		que.addPatient(new Patient(2,"Elias"));
+		que.addPatient(new Patient(2,"Inez"));
+		que.addPatient(new Patient(1,"Magdalena"));
+		que.addPatient(new Patient(1,"Daniel"));
+		que.addPatient(new Patient(0,"Simon"));
+		que.addPatient(new Patient(3,"Elisabeth"));
 
 //		que.print();
 //		System.out.println();
@@ -39,13 +41,21 @@ public class Hospital {
 		
 		
 		int j = 1;
+		char testa = 10;
+		System.out.println("hej"+testa+"då");
 		
 		while(u.hasNext()){
 			Patient tmp = u.next();
-			
+			StdDraw.setFont(new Font("Helvetica Bold", 1, 17));
 			System.out.println(tmp.toString());
-			StdDraw.setPenColor(tmp.getColor());
 			StdDraw.setPenRadius(0.01);
+			StdDraw.setPenColor(new Color(0,0,0));
+			StdDraw.text((j*xLed)/(que.size()*2), 80, tmp.getDiagnos());
+			StdDraw.text((j*xLed)/(que.size()*2), 100, tmp.getName());
+			StdDraw.text((j*xLed)/(que.size()*2), 120, ""+tmp.geteKey());
+			
+			StdDraw.setPenColor(tmp.getColor());
+
 			StdDraw.ellipse((j*xLed)/(que.size()*2), 100, 60, 40);
 			j = j +2;
 			
