@@ -1,0 +1,44 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+# Conflicts:
+#	bin/Hospital.class
+#	src/Hospital.java
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   .classpath
+#	new file:   Frysboxxens Akutmottagning.pptx
+#	modified:   bin/.gitignore
+#	new file:   bin/GeneratePatient.class
+#	modified:   bin/Hospital.class
+#	modified:   bin/Patient.class
+#	new file:   bin/PatientIterator.class
+#	modified:   bin/PatientQueue.class
+#	new file:   bin/StdDraw.class
+#	new file:   bin/iterator.class
+#	modified:   diagnos.txt
+#	modified:   namn.txt
+#	deleted:    sjuk.txt
+#	new file:   src/GeneratePatient.java
+#	deleted:    src/Heap2.java
+#	modified:   src/Hospital.java
+#	modified:   src/Patient.java
+#	modified:   src/PatientQueue.java
+#	deleted:    src/generatePatient.java
+#
+# Untracked files:
+#	src/PatientQueueTest.java
+#
+
