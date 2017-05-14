@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.util.Scanner;
@@ -36,6 +37,16 @@ public class Hospital {
 		
 		int i = 0; // Iterations
 		Patient patientReception = reception(); // Initiate pat variable and maybe start with patient in graphical reception.
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI frame = new GUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		// Main loop
 		while (true) {

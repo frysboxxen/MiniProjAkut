@@ -5,6 +5,7 @@ public class PatientQueue {
 	private Patient[] heap;
 	private int numPatients;
 	private int maxSize;
+	private String[][] arr;
 	
 	/**
 	 * Constructor for PatientQueue
@@ -14,6 +15,7 @@ public class PatientQueue {
 		this.maxSize = maxSize;
 		numPatients = 0;
 		heap = new Patient[maxSize];
+		arr = new String[maxSize][3];
 	}
 	
 	/**
@@ -127,6 +129,18 @@ public class PatientQueue {
 			}
 		}
 		return false;
+	}
+	
+	public String[][] toMultiDimArr(){
+		
+		PatientIterator itr = iterator();
+		for(int i = 0; i < size(); i++){
+			arr[i][0] = itr.next().eKey + "";
+			arr[i][1] = itr.next().getName();
+			arr[i][2] = itr.next().getDiagnos();
+		}
+		
+		return arr;
 	}
 
 }
